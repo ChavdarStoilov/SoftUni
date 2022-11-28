@@ -1,3 +1,4 @@
+name_of_player = str(input())
 
 winner = ""
 goals = 0
