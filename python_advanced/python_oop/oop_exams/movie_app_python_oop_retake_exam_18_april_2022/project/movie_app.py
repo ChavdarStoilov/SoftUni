@@ -86,10 +86,39 @@ class MovieApp:
                     return f'{username} liked {movie.title} movie.'
 
     def dislike_movie(self, username: str, movie):
-        pass
+
+        for user in self.users_collection:
+            if user.username == username:
+                if movie not in user.movies_liked:
+                    raise Exception(f'{username} has not liked the movie {movie.title}!')
+
+                user.movies_liked.remove(movie)
+                movie.likes -= 1
+                return f'{username} disliked {movie.title} movie.'
+
 
     def display_movies(self):
-        pass
+
+        movies = {'title': [], 'year': [], 'object': []}
+
+        for movie in self.movies_collection:
+            movies['title'].append(movie.title)
+            movies['year'].append(movie.year)
+            movies['object'].append(movie)
+
+
+        sorted_movie = sorted(movies.items(), key=lambda x: x[0])
+
+
+        return sorted_movie
+
+
 
     def __str__(self):
-        pass
+        all_users = [user.username for user in self.users_collection]
+        all_movies = [movie.title for movie in self.movies_collection]
+
+        result_users = ', '.join(all_users) if all_users else 'All users: No users.'
+        result_movies = ', '.join(all_movies) if all_users else 'All movies: No movies.'
+
+        return f'All users: {result_users}\nAll movies: {result_movies}'
