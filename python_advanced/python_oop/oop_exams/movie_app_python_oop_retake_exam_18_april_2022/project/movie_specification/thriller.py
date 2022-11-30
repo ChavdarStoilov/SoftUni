@@ -24,4 +24,4 @@ class Thriller(Movie):
                f' Year:{self.year},' \
                f' Age restriction:{self.__age_restriction},' \
                f' Likes:{self.likes},' \
-               f' Owned by:{self.owner}'
+               f' Owned by:{self.owner.username}'
