@@ -37,7 +37,7 @@ class Movie(ABC):
 
     @property
     def owner(self):
-        return self.__onwer
+        return self.__owner
 
     @owner.setter
     def owner(self, value):
@@ -45,7 +45,7 @@ class Movie(ABC):
         if value.__class__.__name__ != 'User':
             raise ValueError('The owner must be an object of type User!')
 
-        self.__onwer = value
+        self.__owner = value
 
     @abstractmethod
     def details(self):
