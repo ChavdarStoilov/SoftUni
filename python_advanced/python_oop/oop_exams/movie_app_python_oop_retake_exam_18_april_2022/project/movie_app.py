@@ -24,12 +24,12 @@ class MovieApp:
 
         for user in self.users_collection:
             if user.username == username:
-                    if movie.owner == user:
-                        self.movies_collection.append(movie)
-                        user.movies_owned.append(movie)
-                        return f'{username} successfully added {movie.title} movie.'
-                    else:
-                        raise Exception(f'{username} is not the owner of the movie {movie.title}!')
+                if movie.owner == user:
+                    self.movies_collection.append(movie)
+                    user.movies_owned.append(movie)
+                    return f'{username} successfully added {movie.title} movie.'
+                else:
+                    raise Exception(f'{username} is not the owner of the movie {movie.title}!')
 
         raise Exception('This user does not exist!')
 
@@ -37,7 +37,6 @@ class MovieApp:
 
         if movie not in self.movies_collection:
             raise Exception(f'The movie {movie.title} is not uploaded!')
-
 
         for user in self.users_collection:
             if user.username == username:
@@ -54,7 +53,6 @@ class MovieApp:
                 else:
                     raise Exception(f'{username} is not the owner of the movie {movie.title}!')
 
-
     def delete_movie(self, username: str, movie):
 
         if movie not in self.movies_collection:
@@ -68,7 +66,6 @@ class MovieApp:
                     return f'{username} successfully deleted {movie.title} movie.'
                 else:
                     raise Exception(f'{username} is not the owner of the movie {movie.title}!')
-
 
     def like_movie(self, username: str, movie):
 
@@ -96,29 +93,29 @@ class MovieApp:
                 movie.likes -= 1
                 return f'{username} disliked {movie.title} movie.'
 
-
     def display_movies(self):
+        movies = {}
 
-        movies = {'title': [], 'year': [], 'object': []}
+        if not self.movies_collection:
+            return 'No movies found.'
 
         for movie in self.movies_collection:
-            movies['title'].append(movie.title)
-            movies['year'].append(movie.year)
-            movies['object'].append(movie)
+            movies[movie.title] = movie
 
+        sorted_movies = sorted(movies.items(), key=lambda x: (x[1].year, x[0]), reverse=True)
 
-        sorted_movie = sorted(movies.items(), key=lambda x: x[0])
+        result = ''
 
+        for key, value in sorted_movies:
+            result += f'{value.details()}\n'
 
-        return sorted_movie
-
-
+        return result.strip()
 
     def __str__(self):
         all_users = [user.username for user in self.users_collection]
         all_movies = [movie.title for movie in self.movies_collection]
 
-        result_users = ', '.join(all_users) if all_users else 'All users: No users.'
-        result_movies = ', '.join(all_movies) if all_users else 'All movies: No movies.'
+        result_users = ', '.join(all_users) if all_users else 'No users.'
+        result_movies = ', '.join(all_movies) if all_users else 'No movies.'
 
         return f'All users: {result_users}\nAll movies: {result_movies}'
