@@ -50,7 +50,7 @@ class ChristmasPastryShopApp:
     def reserve_booth(self, number_of_people: int):
 
         for booths in self.booths:
-            if booths.capacity >= number_of_people:
+            if booths.capacity >= number_of_people and not booths.is_reserved:
                 booths.reserve(number_of_people)
                 return f"Booth {booths.booth_number} has been reserved for {number_of_people} people."
 
