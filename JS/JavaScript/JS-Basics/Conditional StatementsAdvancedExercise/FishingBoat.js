@@ -42,7 +42,7 @@ function boat(inputs) {
         amount  = boat - boat * discount;
     };
 
-    if (people % 2 == 0) {
+    if (people % 2 == 0 && session != "Autumn") {
         amount -= amount * 0.05
     }
 
