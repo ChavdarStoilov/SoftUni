@@ -1,7 +1,7 @@
 class Inventory:
 
-    def __init__(self, __capacity: int):
-        self.__capacity = __capacity
+    def __init__(self, capacity: int):
+        self.__capacity = capacity
         self.items = []
 
     def add_item(self, item: str):

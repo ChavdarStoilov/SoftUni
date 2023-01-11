@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: white;    
+    }
+</style>
+<body id="body">
+    <button onclick="changeTheme();" id="btn">Dark</button>
+</body>
+<script>   
+    function changeTheme(){
+
+        let color = document.getElementById('btn').innerHTML;
+        if (color == "White") {
+            white();
+        }
+        else if (color ==="Dark") {
+            dark();
+        }
+    }
+
+    function dark(){
+        console.log('Test');
+        document.getElementById("body").style.backgroundColor = "black";
+        document.getElementById('btn').innerHTML = "White";
+    }
+
+    function white() {
+        document.getElementById("body").style.backgroundColor = "white";
+        document.getElementById('btn').innerHTML = "Dark";
+    }
+
+</script>
+</html>
