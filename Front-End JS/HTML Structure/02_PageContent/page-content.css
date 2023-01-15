@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #CCCCCC;
+}
+
+.header-paragraph {
+    
+    font-style: italic;
+}
+
+.article-paragraph {
+    font-size: 24px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+section {
+    margin-left: 20px;
+}
