@@ -1,0 +1,30 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    margin: 50px;
+}
+header  {
+    padding: 8px 10px;
+    border-bottom: 2px solid #000000;
+}
+header * {
+    display: inline;
+    vertical-align: middle;
+}
+
+nav, li{
+    display: inline-block;
+    margin-left: 10px;
+
+}
+
+a {
+    padding-left: 20px;
+}
+a {
+    color: green;
+    text-decoration: none;
+}
+
