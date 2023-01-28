@@ -1,22 +1,27 @@
-html {
-    font-family: Helvetica, sans-serif;
-}
-
 body{
+    font-family: Helvetica, sans-serif;
     background-color: rgb(238, 238, 238);
     color: rgb(51, 51, 51);
 
 }
 
 img {
-    height: 220px;
+    height: 320px;
 }
+
 
 article {
     width: 50%;
+    margin: 12px 10px 12px 24px;
+    display: inline-block;
+}
+
+p {
+    text-indent: 1px;
     
 }
 
 aside {
-    width: 50%;
+    display: inline-block;
+    position: absolute;
 }
