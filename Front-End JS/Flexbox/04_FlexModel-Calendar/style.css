@@ -1,0 +1,32 @@
+html * {
+    box-sizing: border-box;
+}
+
+.container, section {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 65vw;
+}
+
+span {
+    border: 1px solid black;
+}
+
+.notes {
+    flex-direction: column;
+    width: 200px;
+    padding: 30px;
+}
+
+.week {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.workweek {
+    width: 100px;
+    padding: 20px;
+}
