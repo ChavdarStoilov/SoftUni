@@ -1,0 +1,44 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 50px;
+}
+
+.headings {
+    font-family: Georgia, serif;
+
+}
+
+blockquote {
+    border-left: 3px solid rgb(211, 211, 211);
+    font-style: italic;
+    padding: 5px;
+    padding-left: 30px;
+    height: 150px;
+}
+
+
+table, td, th{
+    border: 1px solid #e8e9e8;
+    border-collapse: collapse;
+    text-align: left;
+
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #383434;
+    color: aliceblue;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f4f4;
+}
+
+@media (max-width: 450px) {
+
+}
