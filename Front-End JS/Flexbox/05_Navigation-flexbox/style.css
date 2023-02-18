@@ -1,0 +1,32 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+
+header {
+    display: flex;
+    border-bottom: 2px solid rgb(0,0,0);
+    justify-content: space-between;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+
+}
+
+h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+}
+
+header ul li a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+    margin-left: 24px;
+}
+
+nav {
+    position: relative;
+    top: 20px;
+}

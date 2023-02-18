@@ -1,0 +1,19 @@
+body, ul, li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 700px;
+    margin: 10px auto;
+    align-items: center;
+
+}
+
+.gallery ul li img{
+    height: 180px;
+    width: 150px;
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 6px solid black;
+    
+}
