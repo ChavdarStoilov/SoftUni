@@ -1,0 +1,113 @@
+@media screen and (max-width: 600px){
+
+    /* home main*/
+    .home-main {
+        padding-bottom: 60px;
+        align-content: center;
+    }
+    /* Header nav*/
+    .home-container01 {
+        display: none;
+    }
+    .home-left{
+        display: none;
+    }
+    .navbar-logo-title {
+        margin-left: 0;
+    }
+    .home-right{
+        display: none;
+    }
+
+    /* Home hero*/
+
+    .home-hero1{
+        flex-direction: column;
+        padding-right: 0;
+
+    }
+
+    .home-container03 {
+        align-content: center;
+    }
+
+    .home-container04 {
+        align-items: center;
+    }
+
+    .home-image5 {
+        margin-top: 20px;
+        width: 90%;
+    }
+
+
+    /* Shop by categorues */
+    .home-cards-container {
+        justify-content: start;
+        grid-gap: 24px;
+
+    }
+
+    .category-card-image {
+        width: 270px;
+        height: 270px;
+    }
+
+    /* Banner */
+
+    .home-full-width-banner {
+        flex-direction: column;
+    }
+
+    .home-content{
+        margin: 0 0 20px 0;
+    }
+
+    .home-left4 {
+        padding-top: 30px;
+        padding-bottom: 40px;
+
+    }
+
+    .home-text30{
+        width: 100%;
+    }
+
+    .home-image6{
+        width: 100%;
+    }
+
+    /* blog */
+
+    .section-container {
+        padding-top: 40px;
+    }
+
+    .home-container08 {
+        justify-content: unset;
+    }
+
+    .blog-post-card-blog-post-card {
+        max-width: unset;
+    }
+
+    .max-width-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* home-footer1 */
+
+    .home-footer1 {
+        flex-direction: column-reverse;
+        padding-left: 15px;
+        padding-top: 60px;
+        padding-bottom: 10px;
+
+    }
+
+    .home-links-container{
+        flex-direction: column;
+    }
+
+}
