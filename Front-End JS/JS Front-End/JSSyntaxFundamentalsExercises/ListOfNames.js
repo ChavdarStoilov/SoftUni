@@ -1,7 +1,9 @@
 function sorting(arr) {
-
-    for (i in arr.sort()) {
-        console.log(`${Number(i) + 1}.${arr.sort()[i]}`)
+    let number = 1
+    sorted = arr.sort()
+    for (i in sorted) {
+        console.log(`${number}.${sorted[i]}`);
+        number ++ 
     }
     
 }
