@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="tsst"></h1>
+
+    <script>
+        busID = "depot"
+        let url = `http://localhost:3030/jsonstore/bus/schedule/${busID}`
+
+        fetch (url)
+        .then(response => response.json()) // convert response to json
+        .then(data => console.log(data)) // function for present data
+        .catch(error) // catching error and run function for present it
+
+    </script>
+</body>
+</html>
