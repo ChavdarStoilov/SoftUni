@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Front-End JS/JS Front-End/ajex.js
+Front-End JS/JS Front-End/jquery.js
+.gitignore
+Front-End JS/JS Front-End/jqueryform.js

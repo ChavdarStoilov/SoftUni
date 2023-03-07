@@ -29,3 +29,8 @@
 // )
 
 
+//Sorting: 
+//inventory.sort((a,b) => a.level - b.level);
+
+//let keys = Object.keys(counter);
+//keys.sort(function(a, b) { return counter[b] - counter[a] });
