@@ -4,9 +4,10 @@
 <h1>Create Recipe</h1>
 <div class="items-container">
     <div class="item">
-        <form method="POST">
+        <form method="POST" action="{% url 'create recepe' %}">
             {{ form }}
             {% csrf_token %}
+            <input type="submit" value="Create">
         </form>
     </div>
 </div>
