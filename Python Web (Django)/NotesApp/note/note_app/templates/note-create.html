@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li class="img"><img src="{% static '/images/note.png' %} " /></li>
+                    <li><a href="{% url 'home page' %}">Notes</a></li>
+                    <li class="right"><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="body">
+            <h1>Add Note</h1>
+
+            <!--note data form-->
+            <div class="form">
+                <form method="POST" action = "{% url 'add note' %}">
+                    {{ form }}
+                    {% csrf_token %}
+
+                    <input type="submit" value="Publish" />
+                </form>
+            </div>
+            <!--end note data form-->
+        </div>
+
+{% endblock %}

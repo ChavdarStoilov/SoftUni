@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li class="img"><img src="{% static '/images/note.png' %} " width="32" height="32" /></li>
+
+                    <li><a href="{% url 'home page' %}">Notes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="body">
+            <h1>Enter Your Data</h1>
+
+            <div class="form">
+                <form method="POST" action = "{% url 'home page' %}">
+                    {{ form }} 
+                    {% csrf_token %}
+
+                    <input type="submit" value="SUBMIT" />
+                </form>
+            </div>
+        </div>
+
+{% endblock  %}
