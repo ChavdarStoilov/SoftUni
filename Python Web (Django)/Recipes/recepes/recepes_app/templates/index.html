@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block container %}
+
+        <h1>My Recipes</h1>
+        {% if recepes %}
+            {% for recepe in  recepes%}
+                <div class="items-container">
+                    <div class="item">
+                        <h2>{{ recepe.title }}</h2>
+                        {% comment %} Fix to display img {% endcomment %}
+                        <img class="detail-img" src="{{ recepe.image_url }}" alt="recipe-image">
+                        <div class="recipe-info">
+                            {{ recepe.description }}
+                        </div>
+                        <div class="buttons-container">
+                            <a class="button detail" href="{% url 'recipe details' recepe.pk %}">Details</a>
+                            <a class="button edit" href="{% url 'edit recepe' recepe.pk%}">Edit</a>
+                            <a class="button delete" href="{% url 'delete recepe' recepe.pk %}">Delete</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>There are no recipes.</h2>
+            
+        {% endif %}
+
+        
+
+    {% endblock  %}

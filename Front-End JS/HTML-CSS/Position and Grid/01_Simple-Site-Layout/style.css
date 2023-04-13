@@ -24,6 +24,13 @@ body {
     padding: 5px 10px;
 }
 
+.avatar {
+    background-color: transparent;
+}
+.aside__nav ul{
+    list-style: none;
+}
+
 .main {
     grid-area: main;
     background-color: rgb(181, 216, 255);
