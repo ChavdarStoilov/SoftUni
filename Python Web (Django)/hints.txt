@@ -1,0 +1,78 @@
+Django Hints:
+
+Delete querie:
+
+    Form:
+
+    class {Name_of_class}(forms.ModelForm):
+
+    ----------------------------------------------------------------
+    Call fields from model:
+    ----------------------------------------------------------------
+
+    class Meta:
+        model = {Model}
+        fields = ('__all__')
+
+    ----------------------------------------------------------------
+    Init method:
+    ----------------------------------------------------------------
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__set_disabled_fields()
+
+    ----------------------------------------------------------------
+    Rewrite the save method:
+    ----------------------------------------------------------------
+
+    def save(self, commit=True):
+        if commit:
+            self.instance.delete()
+
+
+    ----------------------------------------------------------------
+    Disable methods
+    ----------------------------------------------------------------
+
+    def __set_disabled_fields(self):
+        for _, field in self.fields.items():
+            field.widget.attrs['readonly'] = 'readonly'
+
+--------------------------------------------------------------------------------------------------------------------------------
+    View:
+
+    ------------------------------------------------
+    Create variables:
+    ------------------------------------------------
+
+    variable_model = {name_model}.objects.get(pk = pk)
+
+    variable_from = {Form}(request.POST, instance=variable_model)
+    
+    ----------------------------------------------------------------
+    Check valid form:
+    ----------------------------------------------------------------
+
+    if form.is_valid():
+        form.save()
+        return redirect("home page")
+    
+    else:
+        form = DeletedRecepeForm(instance=the_recepes)
+
+
+    ----------------------------------------------------------------
+    Context for display in HTML:  
+    ----------------------------------------------------------------
+    
+    context = {
+        "form": form,
+        "recepes": the_recepes,
+    }
+    
+
+    ----------------------------------------------------------------
+    Output
+    ----------------------------------------------------------------
+    return render(request, {HTML file}, context)
