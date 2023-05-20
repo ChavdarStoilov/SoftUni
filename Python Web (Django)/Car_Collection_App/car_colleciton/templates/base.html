@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/style.css"/>
+    <title>CarCollection</title>
+    <link rel="stylesheet" href="{% static 'style/details.css' %} ">
+    <link rel="stylesheet" href="{% static 'style/forms.css' %} ">
+    <link rel="stylesheet" href="{% static 'style/main.css' %} ">
+    <link rel="stylesheet" href="{% static 'style/navigation.css' %} ">
+    <link rel="stylesheet" href="{% static 'style/style.css' %} ">
+
+</head>
+
+<body>
+    <div id="box">
+        <header>
+    
+            <h1><a class="index-navigation" href="{% url 'home page' %}"><span>C</span>ARS <span>C</span>OLLECTION</a></h1>
+            <nav>
+                {% block navigation %}
+                    {% if not user %}
+                        <a href="{% url 'create profile' %}">Create Profile</a>
+
+                    {% elif user %}
+                        <a href="{% url 'catalogue page' %}">Catalogue</a>
+                        <a href="{% url 'create car' %}">Create Car</a>
+                        <a href="{% url 'detail profile' %}">Profile</a>
+                    {% endif %}
+                {% endblock  %}
+    
+            </nav>
+        </header>
+
+    {% block content %}
+    {% endblock  %}
+
+    <footer>
+        &copy;SoftUni Team 2022. All rights reserved.
+    </footer>
+
+</div>
+</body>
+</html>
