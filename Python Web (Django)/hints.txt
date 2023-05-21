@@ -20,24 +20,22 @@ Delete querie:
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.__set_disabled_fields()
+        for field in self.fields.keys():
+            if field:
+                self.fields[field].disabled = True
+                self.fields[field].widget.attrs["readonly"] = True
 
     ----------------------------------------------------------------
     Rewrite the save method:
     ----------------------------------------------------------------
 
+    
+                
     def save(self, commit=True):
-        if commit:
+         if commit:
             self.instance.delete()
 
 
-    ----------------------------------------------------------------
-    Disable methods
-    ----------------------------------------------------------------
-
-    def __set_disabled_fields(self):
-        for _, field in self.fields.items():
-            field.widget.attrs['readonly'] = 'readonly'
 
 --------------------------------------------------------------------------------------------------------------------------------
     View:
