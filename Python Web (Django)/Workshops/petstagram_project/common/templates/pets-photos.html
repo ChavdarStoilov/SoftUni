@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<!-- Main Code -->
+{% block content %}
+<div class="container">
+  <div class="col-9">
+    <!-- Searchbar -->
+    <form class="searchbar" method="post">
+      <input type="text" placeholder="Search by pet name..." />
+      <button>
+        <img src="/static/images/search.png" height="18" alt="img2" />
+      </button>
+    </form>
+    {% include 'common/pets-posts.html' %}
+  </div>
+</div>
+{% endblock %}
