@@ -9,8 +9,6 @@ from django.contrib.auth import authenticate
 class IndexView(LoginRequiredMixin, generic.TemplateView):
     template_name = "index.html"
     login_url = "/login/"
-    # redirect_field_name = "redirect_to"
-
 
     
 
@@ -22,8 +20,9 @@ class RegisterView(generic.CreateView):
     
     
 def login_view(request):
+    message = ""
+    
     if request.POST:
-        print(request.POST)
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
@@ -31,5 +30,9 @@ def login_view(request):
             login(request, user)
             return redirect(reverse_lazy("home page"))
         else:
-            pass
-    return render(request, template_name="login.html")
+            message = "Wrong User or Passowrd"
+        
+    context = {
+        'message': message,
+    }
+    return render(request, template_name="login.html", context=context)
