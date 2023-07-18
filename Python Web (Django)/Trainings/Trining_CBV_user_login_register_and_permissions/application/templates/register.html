@@ -1,1 +1,21 @@
 {% extends 'base.html' %}
+
+
+{% block main %}
+    <form method="POST" action ="{% url 'register page' %}">
+        {% for field in form %}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+            <div>
+                {{ field.label_tag }}
+            </div>
+            <div>
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <button>Register</button>
+        {% csrf_token %}
+    </form>
+{% endblock  %}
