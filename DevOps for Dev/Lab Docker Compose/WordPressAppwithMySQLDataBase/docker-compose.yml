@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  mysql:
+    container_name: wordpress_db
+    environment:
+        - MYSQL_ROOT_PASSWORD=pass
+        - MYSQL_DATABASE=wordpressdb
+        - MYSQL_USER=wordpress
+        - MYSQL_PASSWORD=wordpress
+    expose:
+        - 3306
+        - 33060
+    network_mode: my_network
+    volumes:
+        - db_data:/var/lib/mysql
+    image: mysql
+  wordpress:
+    image: wordpress:latest
+    container_name: workpress-website
+    environment:
+        - WORDPRESS_DB_HOST=wordpress_db
+        - WORDPRESS_DB_USER=wordpress
+        - WORDPRESS_DB_PASSWORD=wordpress
+        - WORDPRESS_DB_NAME=wordpressdb
+    restart: always
+    volumes:
+        - wp_data:/var/www/html
+    ports:
+        - '81:80'
+    network_mode: my_network
+
+volumes:
+    db_data:
+    wp_data:
+
+networks:
+    my_network:
