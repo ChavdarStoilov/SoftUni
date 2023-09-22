@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .training-titles {
+            text-align: center;
+        }
+
+        .title-up-border {
+            background-color: var(--c);
+            height: 50px;
+            clip-path: polygon(0px 0px, 100% 0.50%, 100% 3.75%, 0% 100%);
+          }
+          
+          
+          .title-down-border{
+            background-color: var(--c);
+            height: 50px;
+            clip-path: polygon(-2px 50px, 100% 0.5%, 100% 100%, 0% 100%);
+          }
+          
+      </style>
+</head>
+
+<section class='training-titles'>
+    <div class="title-up-border" style="--c: {{ color.primary_color }}"></div>
+    <h1>test</h1>
+    <div class="title-down-border" style="--c: {{ color.primary_color }}"></div>
+</section>

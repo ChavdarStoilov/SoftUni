@@ -3,5 +3,6 @@
 {% block main %}
     {% if user.is_authenticated %}
         <h1>Hello, {{ user }}</h1>
+        {{ color.primary_color }}
     {% endif %}
 {% endblock  %}
