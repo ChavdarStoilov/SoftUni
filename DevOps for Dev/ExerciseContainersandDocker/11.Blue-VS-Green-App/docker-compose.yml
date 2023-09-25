@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  vote:
+    build: /vote
+    command: python app.py
+    ports: 
+      - "5000:80"
+    volumes:
+      - vote:/app
+    networks:
+      - frontend
+      - backend
+  result:
+    build: /result
+    command: nodemon server.js
+    volumes:
+      - result:/app
+    ports: 
+      - "5001:80"
+    networks:
+      - frontend
+      - backend
+  worker:
+    build: /worker
+    networks:
+      - backend
+  redis:
+    image: redis:latest
+    networks:
+      - backend
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  db_data:
+  vote:
+  result:
+
+networks:
+  frontend:
+  backend:

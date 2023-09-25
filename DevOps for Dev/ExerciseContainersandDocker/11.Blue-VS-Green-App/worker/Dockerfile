@@ -1,17 +1,22 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as builder
 
 # Create a working directory
-
-# Copy the .csproj file and restore
-
+WORKDIR /Worker
 # Copy source files to the image
+# Copy the .csproj file and restore
+COPY . .
+RUN dotnet restore "src/Worker/Worker.csproj" 
 
 # Build the project
+RUN dotnet build "src/Worker/Worker.csproj" -c Release -o /app
 
 # Specify app image
-
+FROM mcr.microsoft.com/dotnet/core/runtime:3.1
 # Specify working directory for this stage
+WORKDIR /app
 
 # Tell Docker what command to run when our image is executed inside a container
+ENTRYPOINT [ "dotnet", "Worker.dll" ]
 
 # Copy the /out directory from the build stage into the runtime image
+COPY --from=builder /app/ .
