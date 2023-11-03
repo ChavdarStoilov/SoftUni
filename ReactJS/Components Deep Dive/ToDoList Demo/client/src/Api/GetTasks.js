@@ -17,11 +17,8 @@ export async function GetAllTask() {
 }
 
 
-export async function UpdateStatus(id) {
+export async function UpdateStatus(id, status) {
 
-    data = {
-        isCompleted: true,
-    }
 
     try {
         const response = await fetch( `${baseURL}/${id}`, {
@@ -29,7 +26,7 @@ export async function UpdateStatus(id) {
             headers: {
                 "Content-Type": "application/json",
               },
-            body: JSON.stringify(data),
+            body: JSON.stringify({isCompleted: status}),
             }
         )
 

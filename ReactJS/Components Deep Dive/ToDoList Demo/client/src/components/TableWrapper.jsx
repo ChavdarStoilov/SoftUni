@@ -17,13 +17,16 @@ export default function TableWrapper() {
             .finally( () => setIsLoading(false))
 
     }, []);
-    // function ChangeStatusTask(id) {
+    
 
-    //     api.UpdateStatus(id)
-    //     .then( (result) => console.log(result))
+    const UpdateClickHandler  = (id, status) => {
+        status = !status
+        const result = api.UpdateStatus(id, status);
 
-    // }
-
+        result
+        .then((result) => setLoadedData.filter([...LoadedData, ...result]))
+        
+    };
     return (
         
         <div className="table-wrapper">
@@ -46,7 +49,7 @@ export default function TableWrapper() {
                             _id={row._id}
                             teskText = {row.text}
                             isCompleted = {row.isCompleted}
-                            // ChangeStatusTask
+                            onUpdate={UpdateClickHandler}
                         />
                     ))
                 }
