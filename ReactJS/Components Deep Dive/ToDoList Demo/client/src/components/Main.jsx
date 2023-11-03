@@ -1,6 +1,8 @@
 import TableWrapper from "./TableWrapper";
 
 export default function Main() {
+
+    
     
     return (
         <div>

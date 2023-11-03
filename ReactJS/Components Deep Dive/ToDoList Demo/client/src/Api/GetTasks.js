@@ -17,3 +17,28 @@ export async function GetAllTask() {
 }
 
 
+export async function UpdateStatus(id) {
+
+    data = {
+        isCompleted: true,
+    }
+
+    try {
+        const response = await fetch( `${baseURL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+              },
+            body: JSON.stringify(data),
+            }
+        )
+
+        const result = await response.json()
+
+        return result
+    }
+    catch (error) {
+        return error
+    }
+}
+
