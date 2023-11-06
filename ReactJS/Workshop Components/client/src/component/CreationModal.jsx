@@ -1,12 +1,14 @@
-export default function CreationModal () {
+export default function CreationModal ({
+    onClose
+}) {
     return (
         <div>
-            <div class="backdrop"></div>
+            <div class="backdrop" onClick={onClose}></div>
             <div class="modal">
                     <div class="user-container">
                     <header class="headers">
                         <h2>Edit User/Add User</h2>
-                        <button class="btn close">
+                        <button class="btn close" onClick={onClose}>
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
                             class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                             <path fill="currentColor"
@@ -114,7 +116,7 @@ export default function CreationModal () {
                         </div>
                         <div id="form-actions">
                         <button id="action-save" class="btn" type="submit">Save</button>
-                        <button id="action-cancel" class="btn" type="button">
+                        <button id="action-cancel" class="btn" type="button" onClick={onClose}>
                             Cancel
                         </button>
                         </div>
