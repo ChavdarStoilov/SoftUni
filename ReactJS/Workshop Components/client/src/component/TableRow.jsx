@@ -8,7 +8,6 @@ export default function TableRow({
     phone,
     created_on
 }) {
-    const date = new Date(created_on)
     return (
         <tr>
             <td>

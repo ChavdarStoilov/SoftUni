@@ -1,24 +1,29 @@
 import TableRow from "./TableRow"
 import * as api from "../api/GetAllUsers"
 import { useEffect, useState } from "react"
+import LoadingSpinner from "./LoadingSpinner"
 
 export default function TableWrapper() {
     const [Userlist, setUserlist] = useState([])
+    const [IsLoadingData, setIsLoadingData] = useState(false)
 
 
     useEffect( () =>{
+        setIsLoadingData(true)
+
         api.GetAllUsers()
         .then((result) => setUserlist(result))
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => setIsLoadingData(false))
     }, [])
 
-    return (
-        <div className="table-wrapper">
-        {/* <!-- Overlap components  -->
+    
 
-        <!-- <div className="loading-shade"> -->
-        <!-- Loading spinner  -->
-        <!-- <div className="spinner"></div> --> */}
+    return (
+      <div>
+        {IsLoadingData && <LoadingSpinner />}
+        <div className="table-wrapper">
+
 {/* <!-- No users added yet  -->
 
         <!-- <div className="table-overlap">
@@ -153,6 +158,7 @@ export default function TableWrapper() {
                 )}
           </tbody>
         </table>
+        </div>
       </div>
 
     )
